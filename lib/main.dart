@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Weather App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: WeatherPage(),
     );
@@ -24,8 +24,8 @@ class WeatherPage extends StatefulWidget {
 class _WeatherPageState extends State<WeatherPage> {
 
   String cityName = '';
-  String temperature = '--';
-  String weatherCondition = '--';
+  String temperature = '';
+  String weatherCondition = '';
 
   TextEditingController cityController = TextEditingController();
 
