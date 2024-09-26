@@ -22,25 +22,24 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  // Placeholder variables for the weather data
+.
   String cityName = '';
   String temperature = '--';
   String weatherCondition = '--';
 
   TextEditingController cityController = TextEditingController();
 
-  // Function to simulate fetching weather data
+
   void fetchWeatherData(String city) {
     Random random = Random();
 
-    // Generate a random temperature between 15°C and 30°C
+
     int temp = 15 + random.nextInt(16);
 
-    // Randomly select a weather condition
     List<String> conditions = ['Sunny', 'Cloudy', 'Rainy'];
     String condition = conditions[random.nextInt(conditions.length)];
 
-    // Update the UI with fetched data
+
     setState(() {
       cityName = city;
       temperature = '$temp°C';
@@ -48,7 +47,7 @@ class _WeatherPageState extends State<WeatherPage> {
     });
   }
 
-  // Function to handle button press
+
   void onFetchWeather() {
     String city = cityController.text;
     if (city.isNotEmpty) {
@@ -80,19 +79,19 @@ class _WeatherPageState extends State<WeatherPage> {
               child: Text('Fetch Weather'),
             ),
             SizedBox(height: 20),
-            // Placeholder for displaying the city name
+
             Text(
               'City: $cityName',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 10),
-            // Placeholder for displaying the temperature
+
             Text(
               'Temperature: $temperature',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 10),
-            // Placeholder for displaying the weather condition
+
             Text(
               'Condition: $weatherCondition',
               style: TextStyle(fontSize: 20),
