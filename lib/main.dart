@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math'; // For generating random numbers
 
 void main() => runApp(MyApp());
 
@@ -28,13 +29,31 @@ class _WeatherPageState extends State<WeatherPage> {
 
   TextEditingController cityController = TextEditingController();
 
-  void fetchWeather() {
+  // Function to simulate fetching weather data
+  void fetchWeatherData(String city) {
+    Random random = Random();
+
+    // Generate a random temperature between 15°C and 30°C
+    int temp = 15 + random.nextInt(16);
+
+    // Randomly select a weather condition
+    List<String> conditions = ['Sunny', 'Cloudy', 'Rainy'];
+    String condition = conditions[random.nextInt(conditions.length)];
+
+    // Update the UI with fetched data
     setState(() {
-      // Here, you will replace with actual API fetching logic
-      cityName = cityController.text;
-      temperature = '55°F'; // Example data
-      weatherCondition = 'Sunny'; // Example data
+      cityName = city;
+      temperature = '$temp°C';
+      weatherCondition = condition;
     });
+  }
+
+  // Function to handle button press
+  void onFetchWeather() {
+    String city = cityController.text;
+    if (city.isNotEmpty) {
+      fetchWeatherData(city);
+    }
   }
 
   @override
@@ -57,7 +76,7 @@ class _WeatherPageState extends State<WeatherPage> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: fetchWeather,
+              onPressed: onFetchWeather,
               child: Text('Fetch Weather'),
             ),
             SizedBox(height: 20),
