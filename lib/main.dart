@@ -22,7 +22,7 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-.
+
   String cityName = '';
   String temperature = '--';
   String weatherCondition = '--';
